@@ -1,12 +1,11 @@
 {
-    "name" : "App::p6tags",
-    "version" : "0.1",
-    "description" : "Generate editor tags for perl6",
-    "author"      : "Steve Mynott <steve.mynott@gmail.com>",
-    "source-url" : "git://github.com/stmuk/p6-app-p6tags.git",
-    "depends" : [],
-    "provides" : {
-      "App::p6tags" : "bin/p6tags",
+    "name"        : "App::p6tags",
+    "version"     : "0.1",
+    "description" : "Converts to and from Koremutake Memorable Random Strings. ",
+    "depends"     : [],
+    "provides"    : {
+            "App::p6tags": "lib/App/p6tags"
     },
+    "source-url"  : "git://github.com/stmuk/p6-app-p6tags.git",
+    "author"      : "Steve Mynott <steve.mynott@gmail.com>"
 }
-
