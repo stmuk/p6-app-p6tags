@@ -1,0 +1,12 @@
+{
+    "name" : "App::p6tags",
+    "version" : "0.1",
+    "description" : "Generate editor tags for perl6",
+    "author"      : "Steve Mynott <steve.mynott@gmail.com>",
+    "source-url" : "git://github.com/stmuk/p6-app-p6tags.git",
+    "depends" : [],
+    "provides" : {
+      "App::p6tags" : "bin/p6tags",
+    },
+}
+
