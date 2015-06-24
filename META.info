@@ -1,7 +1,7 @@
 {
     "name"        : "App::p6tags",
     "version"     : "0.1",
-    "description" : "Converts to and from Koremutake Memorable Random Strings. ",
+    "description" : "Generate editor tags for perl6. ",
     "depends"     : [],
     "provides"    : {
             "App::p6tags": "lib/App/p6tags"
