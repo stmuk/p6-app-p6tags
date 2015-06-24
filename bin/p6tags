@@ -4,7 +4,6 @@
 
 use v6;
 use File::Find;
-use Data::Dump;
 
 my (@tags, %seen);
 
