@@ -43,7 +43,7 @@ class Purl6::Actions {
         $rest ~~ s:g/\-/\\-/; 
 
         if $fullpack {
-            @tags.push("{$fullpack}\t{$.file}\t/$rest/{ptagfield}");
+            @tags.push: "{$fullpack}\t{$.file}\t/$rest/{ptagfield}";
         }
     }
 
@@ -54,10 +54,10 @@ class Purl6::Actions {
         my $rest = $<>;
         $rest ~~ s:g/\-/\\-/;
 
-        @tags.push("$func\t{$.file}\t/^$rest/{stagfield}");
+        @tags.push: "$func\t{$.file}\t/^$rest/{stagfield}";
 
         if $fullpack {
-            @tags.push( "{$fullpack}::$func\t{$.file}\t/^$rest/{stagfield}");
+            @tags.push: "{$fullpack}::$func\t{$.file}\t/^$rest/{stagfield}";
         }
 
     }
@@ -75,7 +75,7 @@ for @files.sort -> $io {
         $line.chomp;
         next unless $line;
 
-        my $match = Purl6.parse( $line, :actions( Purl6::Actions.new(:$file)) );
+        Purl6.parse: $line, :actions( Purl6::Actions.new(:$file) ) ;
 
     }  
 }
