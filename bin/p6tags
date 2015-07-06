@@ -49,24 +49,7 @@ for @files.sort -> $io {
             }
 
         }
-        
-        if $line ~~ /^\s* ('$'|'%'|'@') (<[A..Z\-]>\w*) \s* '=' \s* / {
-            my $func = $0.Str;
-
-            next if %seen{$func}++;
-
-            my $rest    = $<>;
-            $rest ~~ s:g/\$/\\$<>/;
-            $rest ~~ s:g/\-/\\-/;
-
-            @tags.push("$func\t$file\t/^$rest/$ptagfield");
-
-            if $fullpack {
-                @tags.push( "{$fullpack}::$func\t$file\t/^$rest/$ptagfield");
-            }
-
-        }
-
+       
     }  
 }
 
