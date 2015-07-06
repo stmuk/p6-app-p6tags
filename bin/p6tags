@@ -82,31 +82,6 @@ for @files.sort -> $io {
 
         my $match = Purl6.parse( $line, :actions( Purl6::Actions.new(:$file)) );
 
-        next; # XXX
-
-        if $line ~~ /^\s* (\w+)':' / {
-            my $func = $0,Str;
-            my $rest = $<>;
-            @tags.push( "OOO$func\t$file\t/^$rest/$stagfield");
-        }
-
-
-        if $line ~~ /^\s* ('$'|'%'|'@') (<[A..Z\-]>\w*) \s* '=' \s* / {
-            my $func = $0.Str;
-
-            next if %seen{$func}++;
-
-            my $rest    = $<>;
-            $rest ~~ s:g/\$/\\$<>/;
-            $rest ~~ s:g/\-/\\-/;
-
-            @tags.push("$func\t$file\t/^$rest/$ptagfield");
-
-            if $fullpack {
-                @tags.push( "{$fullpack}::$func\t$file\t/^$rest/$ptagfield");
-            }
-        }
-
     }  
 }
 
