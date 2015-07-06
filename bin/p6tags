@@ -49,13 +49,7 @@ for @files.sort -> $io {
             }
 
         }
-
-        if $line ~~ /^\s* (\w+)':' / {
-            my $func = $0,Str;
-            my $rest = $<>;
-            @tags.push( "$func\t$file\t/^$rest/$stagfield");
-        }
-
+        
         if $line ~~ /^\s* ('$'|'%'|'@') (<[A..Z\-]>\w*) \s* '=' \s* / {
             my $func = $0.Str;
 
