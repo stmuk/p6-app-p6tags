@@ -4,18 +4,14 @@
 
 use v6;
 use File::Find;
-#use Grammar::Debugger;
-use Data::Dump;
 
-my (@tags, %seen);
+my (@tags, %seen, $fullpack);
 
 # package
-my $ptagfield = ';"	p';
+constant ptagfield = ';"	p';
 
 # subroutine
-my $stagfield = ';"	s';
-
-my $fullpack; # XXX
+constant stagfield = ';"	s';
 
 grammar Purl6 {
     
@@ -47,7 +43,7 @@ class Purl6::Actions {
         $rest ~~ s:g/\-/\\-/; 
 
         if $fullpack {
-            @tags.push("{$fullpack}\t{$.file}\t/$rest/$ptagfield");
+            @tags.push("{$fullpack}\t{$.file}\t/$rest/{ptagfield}");
         }
 
     }
@@ -59,10 +55,10 @@ class Purl6::Actions {
         my $rest = $<>;
         $rest ~~ s:g/\-/\\-/;
 
-        @tags.push("$func\t{$.file}\t/^$rest/$stagfield");
+        @tags.push("$func\t{$.file}\t/^$rest/{stagfield}");
 
         if $fullpack {
-            @tags.push( "{$fullpack}::$func\t{$.file}\t/^$rest/$stagfield");
+            @tags.push( "{$fullpack}::$func\t{$.file}\t/^$rest/{stagfield}");
         }
 
     }
