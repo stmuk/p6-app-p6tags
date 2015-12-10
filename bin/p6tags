@@ -8,10 +8,10 @@ use File::Find;
 my (@tags, $fullpack);
 
 # package
-constant ptagfield = ';"	p';
+constant ptagfield = ";\"\tp";
 
 # subroutine
-constant stagfield = ';"	s';
+constant stagfield = ";\"\ts";
 
 grammar Purl6 {
     
