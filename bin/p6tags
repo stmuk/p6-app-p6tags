@@ -57,7 +57,7 @@ class Purl6::Actions {
         my $line = "$func\t{$.file}\t/^$rest/{stagfield}";
 
         if $fullpack {
-            @tags.push: $line, "{$fullpack}::$func\t{$.file}\t/^$rest/{stagfield}";
+            @tags.push: "{$fullpack}::$line";
         }
 
         @tags.push: $line;
