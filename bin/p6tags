@@ -1,5 +1,4 @@
 #!/usr/bin/env perl6
-# heavily tweaked and ported to perl6 by steve.mynott@gmail.com
 
 use v6;
 use File::Find;
