@@ -82,4 +82,4 @@ for @files.sort -> $io {
 
 @tags = @tags.unique.sort;
 
-'tags'.IO.spurt(@tags.join("\n"));
+'tags'.IO.spurt: @tags.join: "\n";
