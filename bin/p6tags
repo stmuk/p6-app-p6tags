@@ -63,7 +63,8 @@ class Purl6::Actions {
     }
 }
 
-my @files = find( :dir("."), :type('file'), :name( rx/(.p(m|l|6)|pm6 )$/) ).map({.IO});
+my @files = find( :dir("."), :type('file'), :name( rx/(.p(m|l|6)|pm6 )$/) ).».IO;
+#my @files = find( :dir("."), :type('file'), :name( rx/(.p(m|l|6)|pm6 )$/) ).map({.IO});
 
 for @files.sort -> $io {
 
@@ -72,8 +73,8 @@ for @files.sort -> $io {
     my @lines = $lines.split(/\n/);
 
     for @lines -> $line {
-        $line.chomp;
         next unless $line;
+        $line.chomp;
 
         @tags.append: gather Purl6.parse( $line, :actions( Purl6::Actions.new(:$file) ) )  ;
 
